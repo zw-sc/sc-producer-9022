@@ -1,0 +1,27 @@
+server:
+  port: 9022
+spring:
+  application:
+    name: sc-producer
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shop?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+  jpa:
+    database: MySQL
+    show-sql: true
+    open-in-view: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://euk-server-1:9001/eureka,http://euk-server-2:9002/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: true
